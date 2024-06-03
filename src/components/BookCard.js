@@ -45,7 +45,6 @@ const BookCard = ({ book }) => {
             height={300}
             src={book.cover}
             alt={`Cover of ${book.title}`}
-            objectFit="cover"
             onLoad={() => setIsLoading(false)}
           />
         </Skeleton>

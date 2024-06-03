@@ -42,7 +42,6 @@ const BookDetail = ({ book }) => {
             height={300}
             src={book.backCover}
             alt={`Back cover of ${book.title}`}
-            objectFit="back cover"
             onLoad={() => setIsLoading(false)}
           />
         </Skeleton>

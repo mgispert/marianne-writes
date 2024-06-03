@@ -28,7 +28,6 @@ export default function CharactersPage() {
         backgroundRepeat="repeat"
       >
         <Navbar />
-
         <Heading as="h1" size="xl" mb={8} textAlign="center">
           {selectedBook.title}
         </Heading>

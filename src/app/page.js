@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  Box,
-  Heading,
-  Text,
-  Button,
-  Link as ChakraLink,
-  Skeleton,
-} from "@chakra-ui/react";
+import { Box, Text, Link as ChakraLink, Skeleton } from "@chakra-ui/react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
@@ -29,7 +22,6 @@ function Home() {
           height={200}
           src={"/images/banner.png"}
           alt={"banner"}
-          objectFit="banner"
         />
         <Text fontSize="xl" mb={8}>
           Discover captivating stories written by Marianne G.
@@ -46,7 +38,6 @@ function Home() {
               height={200}
               src={"/images/logo.png"}
               alt={"main button"}
-              objectFit="main"
               onLoad={() => setIsLoading(false)}
             />
           </Skeleton>

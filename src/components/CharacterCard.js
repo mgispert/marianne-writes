@@ -39,7 +39,6 @@ const CharacterCard = ({ character }) => {
             height={300}
             src={character.front}
             alt={`Image of ${character.name}`}
-            objectFit="cover"
             onLoad={() => setIsLoading(false)}
           />
         </Skeleton>
@@ -62,7 +61,6 @@ const CharacterCard = ({ character }) => {
             height={300}
             src={character.back}
             alt={`Image of ${character.name}`}
-            objectFit="cover"
             onLoad={() => setIsLoading(false)}
           />
         </Skeleton>
