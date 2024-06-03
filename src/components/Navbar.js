@@ -3,13 +3,13 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <Flex as="nav" bg="teal.500" p={4}>
+    <Flex as="nav" bg="#0000004f" p={4} mb={10}>
       <Box
         maxW="container.lg"
         mx="auto"
         w="100%"
         display="flex"
-        justifyContent="space-between"
+        justifyContent="space-evenly"
       >
         <ChakraLink as={Link} href="/about" color="white" mr={4}>
           About

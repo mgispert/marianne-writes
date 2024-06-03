@@ -1,36 +1,54 @@
 "use client";
-import { Box, Image, Text, Link as ChakraLink } from "@chakra-ui/react";
+
+import { useState } from "react";
+import { Box, Link as ChakraLink, Skeleton } from "@chakra-ui/react";
 import { useBookContext } from "@/context/BookContext";
 import Link from "next/link";
+import Image from "next/image";
 
 const BookCard = ({ book }) => {
   const { selectedBook, setSelectedBook } = useBookContext();
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleBookClick = () => {
     setSelectedBook(book);
   };
 
+  const cardStyles = {
+    width: "200px",
+    height: "300px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    cursor: "pointer",
+  };
+
   return (
     <ChakraLink as={Link} href="/books/details" color="white" mr={4}>
       <Box
-        borderWidth="1px"
-        borderRadius="lg"
         overflow="hidden"
         maxW="sm"
         m={4}
+        style={cardStyles}
         onClick={handleBookClick}
         cursor="pointer"
       >
-        <Image
-          src={book.cover}
-          alt={`Cover of ${book.title}`}
-          objectFit="cover"
-        />
-        <Box p={4}>
-          <Text fontSize="xl" fontWeight="bold">
-            {book.title}
-          </Text>
-        </Box>
+        <Skeleton
+          isLoaded={!isLoading}
+          fadeDuration={3}
+          startColor="BlackAlpha.900"
+          endColor="WhiteAlpha.100"
+        >
+          <Image
+            width={200}
+            height={300}
+            src={book.cover}
+            alt={`Cover of ${book.title}`}
+            objectFit="cover"
+            onLoad={() => setIsLoading(false)}
+          />
+        </Skeleton>
       </Box>
     </ChakraLink>
   );

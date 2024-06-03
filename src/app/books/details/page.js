@@ -21,14 +21,18 @@ export default function BooksPage() {
   }
 
   return (
-    <Container>
-      <Heading as="h1" size="xl" mb={8} textAlign="center">
-        {selectedBook.title}
-      </Heading>
+    <>
       <Navbar />
-      <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} spacing={10}>
+      <Container
+        display={"flex"}
+        flexDirection={"column"}
+        alignItems={"center"}
+      >
+        <Heading as="h1" size="xl" mb={8} textAlign="center">
+          {selectedBook.title}
+        </Heading>
         <BookDetail book={selectedBook} />
-      </SimpleGrid>
-    </Container>
+      </Container>
+    </>
   );
 }
