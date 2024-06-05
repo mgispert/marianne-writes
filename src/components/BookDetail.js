@@ -13,12 +13,24 @@ const BookDetail = ({ book }) => {
     setSelectedBook(book);
   };
 
+  const links = [
+    { href: "/books/details/characters", label: "CHARACTERS" },
+    { href: "/books/details/tropes", label: "TROPES" },
+  ];
+
   const cardStyles = {
     width: "200px",
     height: "300px",
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
+    justifyContent: "center",
+  };
+
+  const linkStyles = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
     justifyContent: "center",
   };
 
@@ -46,22 +58,18 @@ const BookDetail = ({ book }) => {
           />
         </Skeleton>
       </Box>
-      <Box overflow="hidden" maxW="sm" onClick={handleBookClick}>
-        <Skeleton
-          isLoaded={!isLoading}
-          fadeDuration={3}
-          startColor="BlackAlpha.900"
-          endColor="WhiteAlpha.100"
-        >
+      <Box overflow="hidden" maxW="sm" style={linkStyles}>
+        {links.map((link) => (
           <ChakraLink
+            key={link.href}
             as={Link}
-            href="/books/details/characters"
+            href={link.href}
             color="white"
             mr={4}
           >
-            <Text>CHARACTERS</Text>
+            <Text>{link.label}</Text>
           </ChakraLink>
-        </Skeleton>
+        ))}
       </Box>
     </>
   );
