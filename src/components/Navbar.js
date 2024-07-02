@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <Flex as="nav" bg="#0000004f" p={4} mb={10}>
+    <Flex as="nav" bg="#0000008f" p={4} mb={10}>
       <Box
         maxW="container.lg"
         mx="auto"

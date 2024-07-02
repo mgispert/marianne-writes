@@ -14,18 +14,14 @@ function Home() {
     alignItems: "center",
     justifyContent: "center",
   };
+
+
+  const imageStyles = {
+    borderRadius: "50%",
+    marginTop: "250px"
+  };
   return (
-    <Box p={8}>
       <Box maxW="xl" mx="auto" textAlign="center" style={cardStyles}>
-        <Image
-          width={400}
-          height={200}
-          src={"/images/banner.png"}
-          alt={"banner"}
-        />
-        <Text fontSize="xl" mb={8}>
-          Discover captivating stories written by Marianne G.
-        </Text>
         <ChakraLink as={Link} href="/about" mr={4}>
           <Skeleton
             isLoaded={!isLoading}
@@ -36,6 +32,7 @@ function Home() {
             <Image
               width={200}
               height={200}
+              style={imageStyles}
               src={"/images/logo.png"}
               alt={"main button"}
               onLoad={() => setIsLoading(false)}
@@ -43,7 +40,6 @@ function Home() {
           </Skeleton>
         </ChakraLink>
       </Box>
-    </Box>
   );
 }
 

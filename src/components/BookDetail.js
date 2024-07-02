@@ -13,10 +13,7 @@ const BookDetail = ({ book }) => {
     setSelectedBook(book);
   };
 
-  const links = [
-    { href: "/books/details/characters", label: "CHARACTERS" },
-    { href: "/books/details/tropes", label: "TROPES" },
-  ];
+  const links = [{ href: "/books/details/characters", label: "CHARACTERS" }];
 
   const cardStyles = {
     width: "200px",
