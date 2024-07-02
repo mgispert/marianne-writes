@@ -2,8 +2,8 @@ import { extendTheme } from "@chakra-ui/react";
 
 const theme = extendTheme({
   fonts: {
-    body: "'IM Fell English SC', sans-serif",
-    heading: "'IM Fell English SC', sans-serif",
+    body: "'Goudy Bookletter 1911', serif",
+    heading: "'Cinzel Decorative', serif",
   },
   fontWeights: {
     normal: 500,
@@ -24,7 +24,7 @@ const theme = extendTheme({
     global: {
       "html, body": {
         fontFamily: "body",
-        fontSize: "16px",
+        fontSize: "18px",
         fontWeight: "normal",
         lineHeight: "tall",
         color: "text",
@@ -33,8 +33,10 @@ const theme = extendTheme({
         scrollBehavior: "smooth",
         backgroundImage: "url('/images/background.png')",
         backgroundSize: "cover",
-        backgroundRepeat: "repeat",
-        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center top", // Ensures better positioning
+        minHeight: "100vh", // Ensures the background spans at least the viewport height
+        height: "auto", // Allows body to grow with content
       },
     },
   },

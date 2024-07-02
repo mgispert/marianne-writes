@@ -8,15 +8,10 @@ export default function BooksPage() {
   return (
     <>
       <Navbar />
-      <Box>
-        <Heading as="h1" size="xl" mb={8} textAlign="center">
-          Books
-        </Heading>
-        <Container display={"flex"} justifyContent={"center"}>
+      <Box>  
           {books.map((book) => (
             <BookCard key={book.id} book={book} />
           ))}
-        </Container>
       </Box>
     </>
   );

@@ -4,6 +4,7 @@ import { Box, Text, Link as ChakraLink, Skeleton } from "@chakra-ui/react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { color } from "framer-motion";
 
 function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -14,18 +15,15 @@ function Home() {
     alignItems: "center",
     justifyContent: "center",
   };
+
+
+  const imageStyles = {
+    borderRadius: "50%",
+    marginTop: "250px",
+    opacity: "0%"
+  };
   return (
-    <Box p={8}>
       <Box maxW="xl" mx="auto" textAlign="center" style={cardStyles}>
-        <Image
-          width={400}
-          height={200}
-          src={"/images/banner.png"}
-          alt={"banner"}
-        />
-        <Text fontSize="xl" mb={8}>
-          Discover captivating stories written by Marianne G.
-        </Text>
         <ChakraLink as={Link} href="/about" mr={4}>
           <Skeleton
             isLoaded={!isLoading}
@@ -34,8 +32,9 @@ function Home() {
             endColor="WhiteAlpha.100"
           >
             <Image
-              width={200}
-              height={200}
+              width={1000}
+              height={1000}
+              style={imageStyles}
               src={"/images/logo.png"}
               alt={"main button"}
               onLoad={() => setIsLoading(false)}
@@ -43,7 +42,6 @@ function Home() {
           </Skeleton>
         </ChakraLink>
       </Box>
-    </Box>
   );
 }
 
