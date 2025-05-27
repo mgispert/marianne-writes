@@ -27,9 +27,6 @@ export default function Navbar() {
         <ChakraLink as={Link} href="/books" color="white" mr={4}>
           Books
         </ChakraLink>
-        <ChakraLink as={Link} href="/contact" color="white">
-          Contact
-        </ChakraLink>
       </Box>
       <Divider orientation="vertical" />
       <Box
@@ -44,7 +41,7 @@ export default function Navbar() {
         <ChakraLink as={Link} href="https://www.instagram.com/authormariannegrey" color="white" target="_blank">
         <FaInstagram />
         </ChakraLink>
-        <ChakraLink as={Link} href="https://www.goodreads.com/book/show/221537510-of-shadow-and-argent" color="white" target="_blank">
+        <ChakraLink as={Link} href="https://www.goodreads.com/author/list/41662510.Marianne_Grey" color="white" target="_blank">
         <FaGoodreads />
         </ChakraLink>
         <ChakraLink as={Link} href="https://www.etsy.com/shop/TheShadowedScroll" color="white" target="_blank">
