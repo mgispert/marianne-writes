@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    body {
+      font-family: 'Cinzel', serif;
+    }
+
+    text {
+      font-family: 'Cinzel', serif;
+    }
+  
+      body {
+        background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+        background-color: #0a0a0a;
+        background-size: cover;
+      }
+    </style>
+<meta charset="utf-8"/>
+<title>Force-Directed Fantasy Web</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Uncial+Antiqua&display=swap');
+
+    body {
+      background: #0c0c1c url('https://www.transparenttextures.com/patterns/stardust.png');
+      margin: 0;
+      font-family: 'Uncial Antiqua', cursive;
+      overflow: hidden;
+    }
+    .link {
+      stroke-opacity: 0.8;
+    }
+    .link.partner {
+      stroke: #e17055;
+      stroke-dasharray: 0;
+    }
+    .link.child {
+      stroke: #00cec9;
+      stroke-dasharray: 5,5;
+    }
+    .link.sibling {
+      stroke: #ffeaa7;
+      stroke-dasharray: 2,2;
+    }
+    .link.love {
+      stroke: #fd79a8;
+      stroke-dasharray: 3,1;
+    }
+    .link.ally, .link.follower {
+      stroke: #74b9ff;
+      stroke-dasharray: 1,3;
+    }
+    .node circle {
+      stroke: #fff;
+      stroke-width: 1.5px;
+      fill: #a29bfe;
+    }
+    text {
+      fill: white;
+      font-size: 14px;
+      font-family: 'Uncial Antiqua', cursive;
+      pointer-events: none;
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&amp;display=swap" rel="stylesheet"/><style>
+      body {
+        font-family: 'Cinzel', serif !important;
+      }
+      text {
+        font-family: 'Cinzel', serif !important;
+        fill: white;
+      }
+    </style></head>
+<body><div style="border: 10px double #c0c0c0;padding: 20px;box-shadow: 0 0 25px rgba(192, 192, 192, 0.5);border-radius: 15px;background: rgba(0, 0, 0, 0.7);">
+<svg height="1000" width="1600">
+<g class="legend" transform="translate(30,30)">
+<rect fill="rgba(20,20,40,0.8)" height="160" rx="10" ry="10" width="200"></rect>
+<text fill="white" font-size="16" font-weight="bold" x="10" y="20">Legend</text>
+<g transform="translate(10, 40)">
+<line class="link partner" stroke-width="2" x1="0" x2="30" y1="0" y2="0"></line>
+<text x="40" y="5">Partner</text>
+</g>
+<g transform="translate(10, 60)">
+<line class="link child" stroke-width="2" x1="0" x2="30" y1="0" y2="0"></line>
+<text x="40" y="5">Parent/Child</text>
+</g>
+<g transform="translate(10, 80)">
+<line class="link sibling" stroke-width="2" x1="0" x2="30" y1="0" y2="0"></line>
+<text x="40" y="5">Siblings</text>
+</g>
+<g transform="translate(10, 100)">
+<line class="link love" stroke-width="2" x1="0" x2="30" y1="0" y2="0"></line>
+<text x="40" y="5">In Love</text>
+</g>
+<g transform="translate(10, 120)">
+<line class="link ally" stroke-width="2" x1="0" x2="30" y1="0" y2="0"></line>
+<text x="40" y="5">Ally/Follower</text>
+</g>
+</g>
+</svg>
+<script src="https://d3js.org/d3.v6.min.js"></script>
+<script>
+    const nodes = [
+      { id: "Gabriel" }, { id: "Artras" }, { id: "Nyte" }, { id: "Tanith" },
+
+      { id: "Lyra" }, { id: "Nyx" }, { id: "Malinn" }, { id: "Theo" },
+      { id: "Bramm" }, { id: "Demons" }, { id: "Raze" }, { id: "Roman" },
+      { id: "Nephthys" }, { id: "Senka" }, { id: "Ryder" }, { id: "Jade" },
+      { id: "Void" }, { id: "Jaxxian" }, { id: "Soren" }, { id: "Cahir" },
+      { id: "Artras" }, { id: "Gabriel" }, { id: "Nyte" }, { id: "Tanith" }
+    ];
+
+    const links = [
+      { source: "Artras", target: "Raze", type: "sibling" },
+      { source: "Raze", target: "Artras", type: "sibling" },
+      { source: "Soren", target: "Nyx", type: "sibling" },
+      { source: "Nyx", target: "Soren", type: "sibling" },
+      { source: "Nyte", target: "Nyx", type: "ally" },
+      { source: "Tanith", target: "Nyx", type: "ally" },
+
+      { source: "Artras", target: "Gabriel", type: "love" },
+      { source: "Gabriel", target: "Artras", type: "love" },
+      { source: "Nyte", target: "Tanith", type: "ally" },
+
+      { source: "Lyra", target: "Nyx", type: "child" },
+      { source: "Lyra", target: "Malinn", type: "child" },
+      { source: "Lyra", target: "Bramm", type: "ally" },
+      { source: "Lyra", target: "Demons", type: "follower" },
+      { source: "Roman", target: "Nephthys", type: "partner" },
+      { source: "Roman", target: "Senka", type: "partner" },
+      { source: "Roman", target: "Raze", type: "child" },
+      { source: "Roman", target: "Ryder", type: "child" },
+      { source: "Roman", target: "Jade", type: "child" },
+      { source: "Nephthys", target: "Raze", type: "child" },
+      { source: "Senka", target: "Ryder", type: "child" },
+      { source: "Senka", target: "Jade", type: "child" },
+      { source: "Nyx", target: "Theo", type: "sibling" },
+      { source: "Nyx", target: "Malinn", type: "sibling" },
+      { source: "Nyx", target: "Raze", type: "partner" },
+      { source: "Nyx", target: "Void", type: "love" },
+      { source: "Nyx", target: "Jaxxian", type: "sibling" },
+      { source: "Raze", target: "Ryder", type: "sibling" },
+      { source: "Raze", target: "Jade", type: "sibling" },
+      { source: "Jade", target: "Ryder", type: "sibling" },
+      { source: "Malinn", target: "Soren", type: "love" },
+      { source: "Soren", target: "Cahir", type: "sibling" },
+      { source: "Artras", target: "Gabriel", type: "love" },
+      { source: "Nyte", target: "Tanith", type: "ally" }
+    ];
+
+    const svg = d3.select("svg"),
+          width = +svg.attr("width"),
+          height = +svg.attr("height");
+
+    const simulation = d3.forceSimulation(nodes)
+      .force("link", d3.forceLink(links).id(d => d.id).distance(140))
+      .force("charge", d3.forceManyBody().strength(-450))
+      .force("center", d3.forceCenter(width / 2, height / 2));
+
+    const link = svg.append("g")
+      .selectAll("line")
+      .data(links)
+      .join("line")
+      .attr("class", d => `link ${d.type}`)
+      .attr("stroke-width", 2);
+
+    const node = svg.append("g")
+      .selectAll("g")
+      .data(nodes)
+      .join("g")
+      .call(d3.drag()
+        .on("start", dragstarted)
+        .on("drag", dragged)
+        .on("end", dragended));
+
+    node.append("circle").attr("r", 10);
+    node.append("text")
+      .attr("x", 12)
+      .attr("y", "0.31em")
+      .text(d => d.id);
+
+    simulation.on("tick", () => {
+      link
+        .attr("x1", d => d.source.x)
+        .attr("y1", d => d.source.y)
+        .attr("x2", d => d.target.x)
+        .attr("y2", d => d.target.y);
+      node
+        .attr("transform", d => `translate(${d.x},${d.y})`);
+    });
+
+    function dragstarted(event, d) {
+      if (!event.active) simulation.alphaTarget(0.3).restart();
+      d.fx = d.x;
+      d.fy = d.y;
+    }
+
+    function dragged(event, d) {
+      d.fx = event.x;
+      d.fy = event.y;
+    }
+
+    function dragended(event, d) {
+      if (!event.active) simulation.alphaTarget(0);
+      d.fx = null;
+      d.fy = null;
+    }
+  </script>
+</div></body>
+</html>
