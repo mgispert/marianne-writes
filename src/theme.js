@@ -23,20 +23,16 @@ const theme = extendTheme({
   styles: {
     global: {
       "html, body": {
-        fontFamily: "body",
+         fontFamily: "body",
         fontSize: "18px",
         fontWeight: "normal",
         lineHeight: "tall",
         color: "text",
-        bg: "background",
-        margin: "0",
-        scrollBehavior: "smooth",
-        backgroundImage: "url('/images/background.png')",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center top", // Ensures better positioning
-        minHeight: "100vh", // Ensures the background spans at least the viewport height
-        height: "auto", // Allows body to grow with content
+        bg: "linear-gradient(ellipse at bottom, #0d0d1a 0%, #000 100%)",
+        margin: 0,
+        minHeight: "100vh",
+        position: "relative",
+        overflowX: "hidden"
       },
     },
   },

@@ -1,48 +1,74 @@
 "use client";
 
-import { Box, Text, Link as ChakraLink, Skeleton } from "@chakra-ui/react";
+import { Box, Text, Button, Image } from "@chakra-ui/react";
 import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
-import { color } from "framer-motion";
+import { motion } from "framer-motion";
+import Footer from "@/components/Footer";
+
+const MotionText = motion(Text);
+const MotionButton = motion(Button);
 
 function Home() {
-  const [isLoading, setIsLoading] = useState(true);
+    return (
+        <>
+            <Box
+                maxW="xl"
+                mx="auto"
+                textAlign="center"
+                height="100vh"
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+                px={4}
+            >
+                <Image
+                    src="/images/home-logo.png"
+                    alt="Home Logo"
+                    mb={6}
+                    maxW="200px"
+                />
+                <Text
+                    fontSize={{ base: "2xl", md: "3xl" }}
+                    fontFamily="'UnifrakturCook', cursive"
+                    color="silver"
+                    mb={8}
+                    textShadow="0 0 8px #999"
+                >
+                    Where Shadows Whisper and Stars Remember
+                </Text>
 
-  const cardStyles = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-  };
-
-
-  const imageStyles = {
-    borderRadius: "50%",
-    marginTop: "250px",
-    opacity: "0%"
-  };
-  return (
-      <Box maxW="xl" mx="auto" textAlign="center" style={cardStyles}>
-        <ChakraLink as={Link} href="/about" mr={4}>
-          <Skeleton
-            isLoaded={!isLoading}
-            fadeDuration={3}
-            startColor="BlackAlpha.900"
-            endColor="WhiteAlpha.100"
-          >
-            <Image
-              width={1000}
-              height={1000}
-              style={imageStyles}
-              src={"/images/logo.png"}
-              alt={"main button"}
-              onLoad={() => setIsLoading(false)}
-            />
-          </Skeleton>
-        </ChakraLink>
-      </Box>
-  );
+                <MotionButton
+                    as={Link}
+                    href="/about"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    px={10}
+                    py={5}
+                    fontSize="lg"
+                    fontFamily="'UnifrakturCook', cursive"
+                    background="linear-gradient(to right, #0c0c1e, #1a1a40)"
+                    color="silver"
+                    border="2px solid silver"
+                    borderRadius="0"
+                    textShadow="0 0 8px #b0c4de"
+                    boxShadow="0 0 30px rgba(192,192,192,0.3), inset 0 0 10px rgba(255,255,255,0.05)"
+                    _hover={{
+                        background:
+                            "linear-gradient(to right, #1a1a40, #0c0c1e)",
+                        borderColor: "#b0c4de",
+                        textShadow: "0 0 15px #b0c4de",
+                        boxShadow:
+                            "0 0 40px rgba(176,196,222,0.5), inset 0 0 15px rgba(255,255,255,0.1)",
+                    }}
+                    transition="all 0.3s ease-in-out"
+                >
+                    Enter the Realm
+                </MotionButton>
+            </Box>
+            <Footer />
+        </>
+    );
 }
 
 export default Home;
