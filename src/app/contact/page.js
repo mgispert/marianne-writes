@@ -1,75 +1,65 @@
 "use client";
-import { Box, Heading, Link, Button } from "@chakra-ui/react";
+import { Box, Heading, Link } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
-import { useEffect } from "react";
+
+const MotionButton = motion(Box);
 
 export default function ContactPage() {
   const styles = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    cursor: "pointer",
-    minHeight: "100vh",  
-    textAlign: "center", 
-    backgroundColor:"rgba(0, 0, 0, 0.7)",
-    borderRadius:"lg",         
-    p:"6px",                    
-    color:"white"            
-
-  };
-
-  useEffect(() => {
-    // Load the MailerLite script dynamically
-    (function(w, d, e, u, f, l, n) {
-      w[f] = w[f] || function() {
-        (w[f].q = w[f].q || []).push(arguments);
-      };
-      l = d.createElement(e);
-      l.async = 1;
-      l.src = u;
-      n = d.getElementsByTagName(e)[0];
-      n.parentNode.insertBefore(l, n);
-    })(window, document, 'script', 'https://assets.mailerlite.com/js/universal.js', 'ml');
-
-    // Initialize the MailerLite form
-    window.ml('account', '1080121');
-  }, []); // Empty dependency array ensures this runs only once after the component mounts
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",  // Add this to center vertically
+  minHeight: "100vh",
+  textAlign: "center",
+  borderRadius: "lg",
+  p: "6px",
+  color: "silver",
+};
 
 
   return (
     <>
       <Navbar />
-      <Box maxW="60%" mx="auto" textAlign="center" mt="8" mb="10" px="4"  borderRadius="lg"  >
-      <Box style={styles}>
-        {/* Page Title */}
-        <Heading as="h1" size="xl" mb={8} mt={4}>
-          Stay in Touch!
-        </Heading>
+      <Box maxW="60%" mx="auto" textAlign="center" mt="4" mb="10" px="4" borderRadius="lg">
+        <Box style={styles}>
+          {/* Page Title */}
+          <Heading as="h1" size="xl" mb={6} mt={2} fontFamily="'UnifrakturCook', cursive" color="silver" textShadow="0 0 8px #b0c4de">
+            Stay in Touch!
+          </Heading>
 
-        {/* Linktree Link */}
-        <Link
-          href="https://linktr.ee/mariannegrey"
-          isExternal
-          _hover={{ textDecoration: "none" }}
-          mb={8}
-        >
-          <Button
-            size="lg"
-            bg="rgba(30, 30, 60, 0.8)"
-            color="white"
-            _hover={{ bg: "rgba(50, 50, 80, 0.9)" }}
-            borderRadius="md"
+          {/* Linktree Link using MotionButton */}
+          <MotionButton
+            as="a"
+            href="https://linktr.ee/mariannegrey"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            px={10}
+            py={5}
+            fontSize="lg"
+            fontFamily="'UnifrakturCook', cursive"
+            background="linear-gradient(to right, #0c0c1e, #1a1a40)"
+            color="silver"
+            border="2px solid silver"
+            borderRadius="0"
+            textShadow="0 0 8px #b0c4de"
+            boxShadow="0 0 30px rgba(192,192,192,0.3), inset 0 0 10px rgba(255,255,255,0.05)"
+            _hover={{
+              background: "linear-gradient(to right, #1a1a40, #0c0c1e)",
+              borderColor: "#b0c4de",
+              textShadow: "0 0 15px #b0c4de",
+              boxShadow:
+                "0 0 40px rgba(176,196,222,0.5), inset 0 0 15px rgba(255,255,255,0.1)",
+            }}
+            cursor="pointer"
+            mr={4}
           >
             Visit My Linktree
-          </Button>
-        </Link>
-
-        {/* Newsletter Form */}
-        <Box width="100%" maxWidth="600px" mb={4}>
-          <div className="ml-embedded" data-form="pSbxeX"></div>
+          </MotionButton>
         </Box>
-      </Box>
       </Box>
     </>
   );

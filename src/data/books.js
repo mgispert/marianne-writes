@@ -17,7 +17,42 @@ const books = [
       "Magical World",
     ],
     link: "https://mybook.to/Rzhgb",
-    etsy: "https://www.etsy.com/shop/TheShadowedScroll"
+    etsy: "https://www.etsy.com/shop/TheShadowedScroll",
+    map: "/images/osaa-map.png",
+    art: ['/images/osaa-art.jpg', '/images/osaa-art1.PNG', '/images/osaa-art2.png', '/images/osaa-art3.png'],
+  },
+   {
+    id: 2,
+    title: "Of Fate and Nightmares",
+    cover: "/images/ofancover.png",
+    blurb: `I thought the hardest part of my journey was behind me. I was wrong.
+    <br/>Power courses through my veins, ancient and volatile, but power alone is never enough. Not when old enemies wear new masks. Not when secrets weave deeper than I ever imagined, binding me to those I can’t trust and pulling me toward truths I’m not ready to face.
+    <br/>The realms teeter on the edge of war, and everyone looks to me—to lead, to destroy, to save. But how can I protect the people I love when I’m still learning what it means to survive the darkness within?
+    <br/>
+    Fate has plans for me, nightmares whisper promises I can’t ignore, and shadows stir where even the stars won’t shine. My choices will reshape the realms—or end them.
+    <br/>
+    All I know is this: the deeper I go, the harder it becomes to tell friend from foe... or even who I am anymore.
+    <br/>
+    But with my shadows hungrier than ever and my past unraveling before me, one thing is clear: the only way out is through.
+    <br/>
+    Through war. Through nightmares. Through fate itself.
+    <br/>
+    Because if I fall, so do they all.
+`,
+    tropes: [
+        "Enemies-to-Lovers",
+        "Fated Mates",
+        "The Chosen One",
+        "Found Family",
+        "Dark Secret Lineage",
+        "Betrayal",
+        "Court Politics",
+        "Imprisonment and Escape"
+    ],
+    link: "https://mybook.to/HvzRcw",
+    etsy: "https://www.etsy.com/shop/TheShadowedScroll",
+    map: "/images/ofan-map.png",
+    art: ['/images/ofan-art.png', '/images/ofan-art1.png'],
   },
 ];
 
